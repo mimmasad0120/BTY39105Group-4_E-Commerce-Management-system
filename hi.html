@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealzy - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Left Mealzy Marketing Section -->
+        <div class="left-section">
+            <a class="brand-mark" href="#" aria-label="Mealzy home">
+                <span class="brand-name">
+                    Mealzy
+                    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <path d="M7 25C8 14 16 7 27 6c-1 11-8 19-19 19Z" fill="currentColor"/>
+                        <path d="M8 25c4-6 9-10 16-14" stroke="#253a2d" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="brand-tagline">GOOD FOOD&nbsp; • &nbsp;BETTER YOU</span>
+            </a>
+            <div class="hero-copy">
+            <div class="hotel-tag">HEALTHY • HOMEMADE • DELIVERED</div>
+            <h1>Healthy Meals, Delivered Fresh</h1>
+            <p>
+                Enjoy delicious, home-cooked meals made with wholesome ingredients,
+                prepared with care and delivered fresh to your door.
+            </p>
+            </div>
+            <div class="hero-benefits" aria-label="Why choose Mealzy">
+                <div class="hero-benefit">
+                    <svg viewBox="0 0 32 32" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M25 5C14 5 7 11 7 21c0 3 2 5 5 5 10 0 15-9 13-21Z"/>
+                        <path d="M5 28c4-7 9-12 16-17"/>
+                    </svg>
+                    <span>Fresh<br>Ingredients</span>
+                </div>
+                <div class="hero-benefit">
+                    <svg viewBox="0 0 32 32" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 18c-3-1-4-5-2-8l3 2 2-5 4 4 4-4 2 5 3-2c2 3 1 7-2 8v8H9v-8Z"/>
+                        <path d="M13 21h6M14 25h4"/>
+                    </svg>
+                    <span>Homemade<br>with Love</span>
+                </div>
+                <div class="hero-benefit">
+                    <svg viewBox="0 0 32 32" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 8h16v15H3zM19 13h6l5 5v5H19z"/>
+                        <circle cx="9" cy="25" r="2.5"/><circle cx="25" cy="25" r="2.5"/>
+                    </svg>
+                    <span>Fast &amp; Reliable<br>Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Login Section -->
+        <div class="right-section">
+            <div class="login-heading">
+                <p class="login-eyebrow">WELCOME</p>
+                <h2>Log in to your<br>Mealzy account</h2>
+                <p class="subtitle">Enjoy your favorite meals and continue<br class="desktop-break"> your delicious journey.</p>
+            </div>
+
+            <!-- Login Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="showLogin('customer', this)">
+                    Customer Login
+                </button>
+
+                <button class="tab" onclick="showLogin('admin', this)">
+                    Admin Login
+                </button>
+
+            </div>
+
+            <!-- Customer Login Form -->
+            <form id="customer" class="login-form active" autocomplete="off"
+                  onsubmit="customerLogin(event)">
+
+                <div class="input-group">
+                    <label for="customerEmail">Email Address</label>
+                    <div class="field-control">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="m4 7 8 6 8-6"/>
+                        </svg>
+                        <input type="email" id="customerEmail"
+                               placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="customerPassword">Password</label>
+                    <div class="password-field">
+                        <div class="field-control">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="5" y="10" width="14" height="11" rx="2"/>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                            </svg>
+                        <input type="password" id="customerPassword"
+                               placeholder="Enter your password" required>
+                        </div>
+                        <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('customerPassword', this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/>
+                                <circle cx="12" cy="12" r="2.5"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="options">
+                    <a href="#" onclick="showForgotPassword(event)">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login as Customer
+                    <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 12h15M13 5l7 7-7 7"/>
+                    </svg>
+                </button>
+
+                <div class="register">
+                    <span class="login-divider">OR</span>
+                    <span>Don't have an account?</span>
+                    <a href="#" onclick="showRegistration(event)">Create Account</a>
+                </div>
+                <div class="admin-entry-wrap">
+                    Are you staff?
+                    <a class="admin-entry" href="#" onclick="showLogin('admin', document.querySelectorAll('.tab')[1]); return false;">Admin sign in</a>
+                </div>
+            </form>
+
+            <!-- Password Reset Form -->
+            <div id="forgotPassword" class="registration-page">
+                <a href="#" class="back-to-login" onclick="showLoginPage(event)">
+                    &larr; Back to Login
+                </a>
+
+                <div id="resetRequestView">
+                    <h2>Reset Your Password</h2>
+                    <p class="subtitle">We will send a reset code to your email</p>
+
+                    <form onsubmit="requestPasswordReset(event)">
+                        <div class="input-group">
+                            <label for="resetEmail">Email Address</label>
+                            <input type="email" id="resetEmail" autocomplete="off"
+                                   placeholder="Enter your account email" required>
+                        </div>
+
+                        <button type="submit" class="login-btn">Send Reset OTP</button>
+                    </form>
+                </div>
+
+                <div id="resetVerificationStep" class="verification-step">
+                    <h2>Choose a New Password</h2>
+                    <p class="verification-note">
+                        Enter the reset code sent to<br>
+                        <strong id="resetVerificationEmail"></strong>
+                    </p>
+
+                    <form onsubmit="resetPassword(event)">
+                        <div class="input-group">
+                            <label for="resetCode">Reset OTP</label>
+                            <input type="text" id="resetCode" class="verification-code"
+                                   inputmode="numeric" maxlength="6" pattern="[0-9]{6}"
+                                   placeholder="Enter 6-digit OTP" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="newPassword">New Password</label>
+                            <div class="password-field">
+                                <input type="password" id="newPassword" minlength="8"
+                                       placeholder="At least 8 characters" required>
+                                <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('newPassword', this)">&#128065;</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirmNewPassword">Confirm New Password</label>
+                            <div class="password-field">
+                                <input type="password" id="confirmNewPassword" minlength="8"
+                                       placeholder="Repeat your new password" required>
+                                <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('confirmNewPassword', this)">&#128065;</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="login-btn">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Customer Registration Form -->
+            <div id="registration" class="registration-page">
+                <a href="#" class="back-to-login" onclick="showLoginPage(event)">
+                    &larr; Back to Login
+                </a>
+
+                <div class="registration-animation-shell">
+                    <div id="registrationFormView" class="registration-panel active">
+                        <h2>Create Your Account</h2>
+                        <p class="subtitle">Join Mealzy for better shopping</p>
+
+                        <form onsubmit="registerCustomer(event)">
+                        <div class="registration-grid">
+                            <div class="input-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="registrationEmail">Email Address</label>
+                            <input type="email" id="registrationEmail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="registration-grid">
+                            <div class="input-group">
+                                <label for="registrationPassword">Password</label>
+                                <div class="password-field">
+                                    <input type="password" id="registrationPassword" minlength="8" placeholder="At least 8 characters" required>
+                                    <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('registrationPassword', this)">&#128065;</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="password-field">
+                                    <input type="password" id="confirmPassword" minlength="8" placeholder="Repeat your password" required>
+                                    <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('confirmPassword', this)">&#128065;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="terms">
+                            <input type="checkbox" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
+                        </label>
+                        <p class="terms-note">
+                            We use your details to process orders, arrange delivery, and keep your account secure.
+                            You can request changes or deletion of your information at any time.
+                        </p>
+
+                            <button type="submit" id="registrationSubmitButton" class="login-btn">Send Email OTP</button>
+                        </form>
+                    </div>
+
+                    <div id="verificationStep" class="registration-panel">
+                        <h2>Verify Your Email</h2>
+                        <p class="verification-note">
+                            Enter the 6-digit OTP sent to<br>
+                            <strong id="verificationEmail"></strong>
+                        </p>
+                        <p id="otpDeliveryStatus" class="otp-delivery-status" role="status" hidden></p>
+
+                        <form onsubmit="verifyEmailOtp(event)">
+                            <div class="input-group">
+                                <label for="verificationCode">Email OTP</label>
+                                <input type="text" id="verificationCode" class="verification-code"
+                                       inputmode="numeric" autocomplete="one-time-code" autocapitalize="off"
+                                       spellcheck="false" maxlength="6" pattern="[0-9]{6}"
+                                       placeholder="Enter 6-digit OTP" required>
+                            </div>
+
+                            <button type="submit" id="verifyOtpButton" class="login-btn">
+                                Verify Email OTP
+                            </button>
+                        </form>
+
+                        <button type="button" id="resendOtpButton" class="resend-otp-btn" onclick="resendRegistrationOtp()">
+                            Resend OTP
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Login Form -->
+            <form id="admin" class="login-form" autocomplete="off"
+                  onsubmit="adminLogin(event)">
+
+                <div class="input-group">
+                    <label>Admin</label>
+                    <input type="text" id="adminUsername"
+                           placeholder="Enter your username" required>
+                </div> 
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" id="adminPassword"
+                               placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" aria-label="Show password" title="Show password" onclick="togglePassword('adminPassword', this)">&#128065;</button>
+                    </div>
+                </div>
+
+                <div class="options">
+                    <a href="#" onclick="showForgotPassword(event)">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+                <p class="admin-note">
+                    Sign in as an administrator or delivery staff member
+                </p>
+                <div class="admin-entry-wrap">
+                    <a class="customer-entry" href="#" onclick="showLogin('customer', document.querySelector('.tab')); return false;">Back to customer login</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <section id="adminDashboard" class="marketplace-page">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" href="#" aria-label="Mealzy admin home">
+                <span class="admin-brand-name">
+                    Mealzy
+                    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <path d="M7 25C8 14 16 7 27 6c-1 11-8 19-19 19Z" fill="currentColor"/>
+                        <path d="M8 25c4-6 9-10 16-14" stroke="#253a2d" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="admin-brand-tagline">GOOD FOOD • BETTER YOU</span>
+            </a>
+            <p class="admin-sidebar-label">WORKSPACE</p>
+            <nav class="admin-nav" aria-label="Admin sections">
+                <button type="button" class="admin-nav-item" data-title="Dashboard" data-subtitle="Your Mealzy store at a glance." onclick="showAdminSection('adminOverviewSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h5v-6h4v6h5V9"/></svg>
+                    <span>Dashboard</span>
+                </button>
+                <button type="button" class="admin-nav-item active" data-title="Delivery Orders" data-subtitle="Orders ready for delivery." onclick="showAdminSection('adminDeliveryOrdersSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h12v11H3zM15 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/><path d="M6 10h6M6 13h4"/></svg>
+                    <span>Delivery Orders</span>
+                </button>
+                <button type="button" class="admin-nav-item" data-title="Menu" data-subtitle="Manage products, pricing, and availability." onclick="showAdminSection('adminProductSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16v8H4zM6 11a6 6 0 0 1 12 0M8 15h.01M12 15h.01M16 15h.01"/></svg>
+                    <span>Menu</span>
+                </button>
+                <button type="button" class="admin-nav-item" data-title="Customers" data-subtitle="Manage your registered customers." onclick="showAdminSection('adminCustomersSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5.5a3 3 0 0 1 0 5.8M17 14a5 5 0 0 1 4.5 5"/></svg>
+                    <span>Customers</span>
+                </button>
+                <button type="button" class="admin-nav-item" data-title="Ratings" data-subtitle="Customer ratings and item feedback." onclick="showAdminSection('adminRatingsSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></svg>
+                    <span>Ratings</span>
+                </button>
+                <button type="button" class="admin-nav-item" data-title="Reports" data-subtitle="Review key marketplace totals." onclick="showAdminSection('adminReportsSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V4M3 20h18"/><path d="m6 15 4-4 3 2 6-7"/><path d="M16 6h3v3"/></svg>
+                    <span>Reports</span>
+                </button>
+                <button type="button" class="admin-nav-item" data-title="Settings" data-subtitle="Manage delivery staff access." onclick="showAdminSection('deliveryAccountSection', this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.6.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.6-.9l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.9l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.6-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.6.9l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1-.1 1.8Z"/></svg>
+                    <span>Settings</span>
+                </button>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <svg viewBox="0 0 64 68" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 61C22 42 31 24 49 5M21 44C7 42 4 33 5 24c10 0 17 5 18 14M32 29c-1-12 6-19 16-22 3 10-2 19-14 25M42 16c-1-8 3-12 10-15"/>
+                </svg>
+                Fresh Food<br>Happier People
+            </div>
+        </aside>
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="admin-top-actions">
+                    <button type="button" onclick="refreshAdminData()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 9a7 7 0 0 1 12-2l2 2M4 15l2 2a7 7 0 0 0 12-2"/></svg>
+                        Refresh orders
+                    </button>
+                    <button type="button" onclick="openLogoutConfirm()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg>
+                        Log out
+                    </button>
+                </div>
+            </header>
+            <div class="admin-content">
+                <header class="admin-page-heading">
+                    <h1 id="adminPageTitle">Delivery Orders</h1>
+                    <p id="adminPageSubtitle">Orders ready for delivery.</p>
+                </header>
+                <section id="adminOverviewSection" class="admin-section" aria-label="Dashboard">
+                    <div class="admin-summary-row">
+                        <div class="dashboard-panel">
+                            <h2>Current Customers</h2>
+                            <p id="customerCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Accounts Created</h2>
+                            <p id="accountsCreatedCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Products</h2>
+                            <p id="productCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Orders</h2>
+                            <p id="orderCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="adminDeliveryOrdersSection" class="admin-section active" aria-label="Delivery Orders">
+                    <div id="ordersList" class="orders-list" aria-live="polite"></div>
+                </section>
+                <section id="adminProductSection" class="admin-section" aria-label="Menu">
+                    <div class="marketplace-grid">
+                        <section id="addProductSection" class="dashboard-panel" aria-labelledby="addProductHeading">
+                            <h2 id="addProductHeading">Add Product</h2>
+                            <form class="product-form" onsubmit="addProduct(event)">
+                                <input id="productName" name="name" aria-label="Product name" placeholder="Product name" required>
+                                <input id="productCategory" name="category" aria-label="Category" placeholder="Category" required>
+                                <textarea id="productDescription" name="description" aria-label="Marketing description" placeholder="Marketing description" required></textarea>
+                                <input id="productPrice" name="price" type="number" min="0" step="0.01" aria-label="Price" placeholder="Price" required>
+                                <input id="productUnit" name="unit" aria-label="Unit, e.g. per kg" placeholder="Unit, e.g. per kg" required>
+                                <input id="productStock" name="stock" type="number" min="0" step="1" aria-label="Stock quantity" placeholder="Stock quantity" required>
+                                <label for="productImage">Product photo</label>
+                                <input id="productImage" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+                                <button type="submit">Add to Marketplace</button>
+                            </form>
+                        </section>
+                        <div class="dashboard-panel">
+                            <h2>Product Marketing &amp; Pricing</h2>
+                            <div id="adminProductGrid" class="product-grid"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="adminCustomersSection" class="admin-section" aria-label="Customers">
+                    <div class="dashboard-panel">
+                        <h2>Registered Customers</h2>
+                        <div id="customerList" class="customers-list"></div>
+                    </div>
+                </section>
+                <section id="adminRatingsSection" class="admin-section" aria-label="Customer ratings">
+                    <div class="dashboard-panel">
+                        <h2>Customer Ratings</h2>
+                        <p><strong id="adminAverageRating">0.0 ★</strong> · <span id="adminRatingCount">0 ratings</span></p>
+                        <div id="adminRatingsList" class="customers-list" aria-live="polite">
+                            Ratings will appear here when customers submit feedback.
+                        </div>
+                    </div>
+                </section>
+                <section id="adminReportsSection" class="admin-section" aria-label="Reports">
+                    <div class="admin-summary-row">
+                        <div class="dashboard-panel">
+                            <h2>Current Customers</h2>
+                            <p id="reportCustomerCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Accounts Created</h2>
+                            <p id="reportAccountsCreatedCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Products</h2>
+                            <p id="reportProductCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                        <div class="dashboard-panel">
+                            <h2>Orders</h2>
+                            <p id="reportOrderCount" style="font-size: 2rem; margin: 8px 0 0; color: #203a43; font-weight: 700;">0</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="deliveryAccountSection" class="admin-section" aria-label="Settings">
+                    <div class="dashboard-panel">
+                        <h2>Create Delivery Account</h2>
+                        <form class="product-form" onsubmit="createDeliveryUser(event)">
+                            <input id="deliveryAccountName" placeholder="Delivery staff name" required>
+                            <input id="deliveryAccountUsername" placeholder="Delivery username" required>
+                            <input id="deliveryAccountPassword" type="password" minlength="8" placeholder="Password (at least 8 characters)" required>
+                            <input id="deliveryAdminUsername" placeholder="Confirm admin username" required>
+                            <input id="deliveryAdminPassword" type="password" placeholder="Admin password" required>
+                            <button type="submit">Create Delivery Account</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="deliveryDashboard" class="marketplace-page">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" href="#" aria-label="Mealzy delivery home">
+                <span class="admin-brand-name">
+                    Mealzy
+                    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <path d="M7 25C8 14 16 7 27 6c-1 11-8 19-19 19Z" fill="currentColor"/>
+                        <path d="M8 25c4-6 9-10 16-14" stroke="#253a2d" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="admin-brand-tagline">GOOD FOOD • BETTER YOU</span>
+            </a>
+            <p class="admin-sidebar-label">WORKSPACE</p>
+            <nav class="admin-nav" aria-label="Delivery workspace">
+                <a class="admin-nav-item active" href="#deliveryOrdersHeading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h12v11H3zM15 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/><path d="M6 10h6M6 13h4"/></svg>
+                    <span>Delivery Orders</span>
+                </a>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <svg viewBox="0 0 64 68" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 61C22 42 31 24 49 5M21 44C7 42 4 33 5 24c10 0 17 5 18 14M32 29c-1-12 6-19 16-22 3 10-2 19-14 25M42 16c-1-8 3-12 10-15"/>
+                </svg>
+                Fresh Food<br>Happier People
+            </div>
+        </aside>
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="admin-top-actions">
+                    <button type="button" onclick="loadDeliveryOrders()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 9a7 7 0 0 1 12-2l2 2M4 15l2 2a7 7 0 0 0 12-2"/></svg>
+                        Refresh orders
+                    </button>
+                    <button type="button" onclick="openLogoutConfirm()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg>
+                        Log out
+                    </button>
+                </div>
+            </header>
+            <main class="admin-content">
+                <header class="admin-page-heading">
+                    <h1 id="deliveryOrdersHeading">Delivery Orders</h1>
+                    <p id="deliveryWelcome">Orders ready for delivery.</p>
+                </header>
+                <div id="deliveryOrdersList" class="orders-list" aria-live="polite"></div>
+            </main>
+        </div>
+    </section>
+
+    <section id="customerMarketplace" class="marketplace-page">
+        <div class="marketplace-header">
+            <div>
+                <h1>Quality Products, Delivered</h1>
+                <p>Explore fresh agricultural products and everyday essentials at clear prices.</p>
+            </div>
+            <button type="button" onclick="openLogoutConfirm()">Log out</button>
+        </div>
+        <nav class="customer-nav" aria-label="Customer account sections">
+            <a class="customer-brand" href="#" onclick="showCustomerSection('customerShopSection', document.getElementById('shopNavButton')); window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Mealzy</a>
+            <button type="button" id="shopNavButton" class="active" onclick="showCustomerSection('customerShopSection', this); window.scrollTo({top: 0, behavior: 'smooth'})">Home</button>
+            <button type="button" id="menuNavButton" onclick="showCustomerSection('customerShopSection', this); document.getElementById('customerProductGrid').scrollIntoView({behavior: 'smooth', block: 'start'})">Menu</button>
+            <button type="button" onclick="showCustomerSection('customerShopSection', this); document.getElementById('foodPhotoTitle').scrollIntoView({behavior: 'smooth', block: 'center'})">About</button>
+            <a class="customer-nav-action" href="mailto:help@smartmarketplace.example">Contact</a>
+            <button type="button" id="cartNavButton" class="customer-nav-action" onclick="showCustomerSection('customerCartSection', this)">Cart <span id="customerCartCount" class="cart-count">0</span></button>
+            <button type="button" id="wishlistNavButton" class="customer-nav-action" onclick="showCustomerSection('customerWishlistSection', this)">Wishlist <span id="customerWishlistCount" class="wishlist-count">0</span></button>
+            <button type="button" id="profileNavButton" class="customer-nav-action" onclick="showCustomerSection('customerProfileSection', this); loadCustomerOrders()">Profile</button>
+            <button type="button" class="customer-logout" onclick="openLogoutConfirm()">Log out</button>
+        </nav>
+        <div id="customerShopSection" class="customer-section active">
+        <div class="customer-promo" id="customerPromo" aria-label="Marketplace highlights">
+            <article class="promo-slide active">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1800&q=85" alt="Freshly baked pizza topped with cheese and basil">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Freshly made, delivered to you</div>
+                    <h2>Good food.<br>Good mood.</h2>
+                    <p>Discover delicious favourites made fresh and delivered right to your door.</p>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=85" alt="Freshly baked bread and pastries">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Made for the moment</div>
+                    <h2>Something delicious is waiting.</h2>
+                    <p>Discover satisfying favourites for breakfast, lunch, celebrations, or a well-deserved treat.</p>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85" alt="Juicy chicken burger with fresh toppings">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Big flavour, every bite</div>
+                    <h2>Crave it? Treat yourself.</h2>
+                    <p>Find satisfying burgers and comfort-food favourites for a tasty break whenever you need one.</p>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1400&q=85" alt="Cheesy margherita pizza">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Freshly made favourites</div>
+                    <h2>Good food makes every moment better.</h2>
+                    <p>Choose a delicious favourite, add your delivery details, and make your next meal memorable.</p>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85" alt="A spread of fresh combo meals">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Limited-time combo deal</div>
+                    <h2>70% OFF</h2>
+                    <p>Choose a quick bite or a full meal combo at a special price.</p>
+                    <button type="button" class="promo-action" onclick="showComboOffers()">Shop combo deals</button>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85" alt="Chicken burger combo with fresh toppings">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Quick bite combo</div>
+                    <h2>Combo at ₹99</h2>
+                    <p>A tasty, satisfying combo for less.</p>
+                    <button type="button" class="promo-action" onclick="showComboOffers(99)">Shop ₹99 combo</button>
+                </div>
+            </article>
+            <article class="promo-slide">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1400&q=85" alt="A hearty rice meal combo">
+                <div class="promo-copy">
+                    <div class="promo-kicker">Hearty meal combo</div>
+                    <h2>Combo at ₹199</h2>
+                    <p>A generous meal combo made for bigger appetites.</p>
+                    <button type="button" class="promo-action" onclick="showComboOffers(199)">Shop ₹199 combo</button>
+                </div>
+            </article>
+            <div class="promo-dots" role="tablist" aria-label="Choose marketplace highlight">
+                <button class="promo-dot active" type="button" role="tab" aria-label="Show highlight 1" aria-selected="true"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show highlight 2" aria-selected="false"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show highlight 3" aria-selected="false"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show highlight 4" aria-selected="false"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show 70% off combos" aria-selected="false"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show ₹99 combo" aria-selected="false"></button>
+                <button class="promo-dot" type="button" role="tab" aria-label="Show ₹199 combo" aria-selected="false"></button>
+            </div>
+            <form class="search-with-voice" role="search" onsubmit="submitProductSearch(event)">
+                <input id="productSearch" class="marketplace-search" type="search"
+                    placeholder="Search for your favourite food..."
+                    aria-label="Search products by name, category, or description">
+                <button id="voiceSearchButton" class="voice-search-btn" type="button"
+                    aria-label="Start voice search" title="Search by voice" onclick="startVoiceSearch()">&#127908;</button>
+                <button class="product-search-submit" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="category-filter-bar" role="group" aria-label="Filter products">
+            <button type="button" class="category-filter active" data-category="all" aria-pressed="true" onclick="setProductCategory('all', this)">🍽 All</button>
+            <button type="button" class="category-filter" data-category="breakfast" aria-pressed="false" onclick="setProductCategory('breakfast', this)">🍳 Breakfast</button>
+            <button type="button" class="category-filter" data-category="lunch" aria-pressed="false" onclick="setProductCategory('lunch', this)">🥗 Lunch</button>
+            <button type="button" class="category-filter" data-category="dinner" aria-pressed="false" onclick="setProductCategory('dinner', this)">🍲 Dinner</button>
+            <button type="button" class="category-filter" data-category="pizza" aria-pressed="false" onclick="setProductCategory('pizza', this)">🍕 Pizza</button>
+            <button type="button" class="category-filter" data-category="momo" aria-pressed="false" onclick="setProductCategory('momo', this)">🥟 Momo</button>
+            <button type="button" class="category-filter" data-category="combo99" aria-pressed="false" onclick="setProductCategory('combo99', this)">💸 ₹99</button>
+            <button type="button" class="category-filter" data-category="biryani" aria-pressed="false" onclick="setProductCategory('biryani', this)">🍛 Biryani</button>
+        </div>
+        <div class="customer-products-heading">
+            <div><span>Popular right now</span><h2>Top picks for you</h2></div>
+            <a href="#customerProductGrid" onclick="document.getElementById('customerProductGrid').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">View menu</a>
+        </div>
+        <div id="customerProductGrid" class="product-grid"></div>
+        <section id="foodRecommendations" class="food-recommendations" hidden aria-live="polite">
+            <h2 id="foodRecommendationsTitle">You might also like</h2>
+            <p id="foodRecommendationsDescription"></p>
+            <div id="foodRecommendationGrid" class="product-grid"></div>
+        </section>
+        <section class="food-photo-section" aria-labelledby="foodPhotoTitle">
+            <div class="food-photo-heading">
+                <h2 id="foodPhotoTitle">A little something delicious</h2>
+                <p>Good food, made to brighten your day.</p>
+            </div>
+            <div class="food-photo-grid">
+                <figure class="food-photo-card" role="button" tabindex="0" aria-label="Show biryani and curry dishes"
+                        onclick="showFoodPhotoCategory('comfort')"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();showFoodPhotoCategory('comfort')}">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=85"
+                         alt="A warm, richly spiced Indian curry served with rice" loading="lazy" decoding="async">
+                    <figcaption>Biryani &amp; curry favourites</figcaption>
+                </figure>
+                <figure class="food-photo-card" role="button" tabindex="0" aria-label="Show pizza dishes"
+                        onclick="showFoodPhotoCategory('pizza')"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();showFoodPhotoCategory('pizza')}">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85"
+                         alt="Freshly baked pizza topped with cheese and tomatoes" loading="lazy" decoding="async">
+                    <figcaption>Fresh pizza favourites</figcaption>
+                </figure>
+                <figure class="food-photo-card" role="button" tabindex="0" aria-label="Show momo dishes"
+                        onclick="showFoodPhotoCategory('momo')"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();showFoodPhotoCategory('momo')}">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=900&q=85"
+                         alt="Steamed dumplings served with dipping sauce" loading="lazy" decoding="async">
+                    <figcaption>Steamy, spicy momos</figcaption>
+                </figure>
+                <figure class="food-photo-card" role="button" tabindex="0" aria-label="Show burgers and burger combos"
+                        onclick="showFoodPhotoCategory('burger')"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();showFoodPhotoCategory('burger')}">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                         alt="Juicy burger stacked with fresh toppings" loading="lazy" decoding="async">
+                    <figcaption>Big, happy bites</figcaption>
+                </figure>
+            </div>
+        </section>
+        </div>
+        <div id="customerCartSection" class="customer-section">
+            <section class="cart-section" aria-labelledby="customerCartTitle">
+                <h2 id="customerCartTitle">Your Cart</h2>
+                <div id="customerCartItems" class="cart-items"></div>
+                <div id="customerCartSummary" class="cart-summary"></div>
+                <div class="cart-coupon">
+                    <label for="cartCouponCode">Coupon code</label>
+                    <div class="cart-coupon-controls">
+                        <input id="cartCouponCode" type="text" autocomplete="off" placeholder="Enter coupon code">
+                        <button type="button" id="applyCartCouponButton" onclick="applyCartCoupon()">Apply</button>
+                    </div>
+                    <p id="cartCouponMessage" class="cart-coupon-message" role="status" aria-live="polite"></p>
+                </div>
+                <button type="button" id="cartCheckoutButton" class="cart-checkout-button" onclick="openCheckoutModal()">Proceed to checkout</button>
+            </section>
+        </div>
+        <div id="customerWishlistSection" class="customer-section wishlist-section">
+            <div class="customer-products-heading">
+                <div><span>Your saved favourites</span><h2>My Wishlist</h2></div>
+            </div>
+            <div id="customerWishlistGrid" class="product-grid" aria-live="polite"></div>
+        </div>
+        <div id="customerProfileSection" class="customer-section">
+            <div class="dashboard-panel">
+                <h2>My Profile</h2>
+                <div class="profile-grid">
+                    <div class="profile-detail"><span>Name</span><strong id="customerProfileName">-</strong></div>
+                    <div class="profile-detail"><span>Email</span><strong id="customerProfileEmail">-</strong></div>
+                </div>
+            </div>
+            <div class="dashboard-panel" style="margin-top: 20px;">
+                <h2>My Orders</h2>
+                <div id="customerOrdersList" class="orders-list"><p>Loading your orders...</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div><strong>Smart Marketplace</strong> &copy; 2026</div>
+        <nav class="site-footer-links" aria-label="Footer links">
+            <a href="mailto:help@smartmarketplace.example">Help</a>
+            <details class="connect-menu">
+                <summary>Connect</summary>
+                <div class="connect-options">
+                    <a href="https://wa.me/917001941354" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a href="https://www.facebook.com/Asikul sk" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://www.instagram.com/_asikul.786/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </details>
+            <a href="#" onclick="showInfoModal('terms'); return false;">Terms</a>
+            <a href="#" onclick="showInfoModal('privacy'); return false;">Privacy Policy</a>
+        </nav>
+    </footer>
+
+    <div id="addToCartModal" class="checkout-modal" style="display:none;">
+        <div class="checkout-modal-content">
+            <div class="checkout-modal-header">
+                <h2 id="addToCartTitle">Add to Cart</h2>
+                <span class="delivery-badge" aria-hidden="true">+</span>
+            </div>
+            <form onsubmit="addToCart(event)">
+                <div class="checkout-input-group">
+                    <label for="cartQuantity">Number of items</label>
+                    <input id="cartQuantity" type="number" min="1" step="1" value="1" required>
+                </div>
+                <div class="checkout-actions">
+                    <button type="button" class="secondary" onclick="closeAddToCartModal()">Cancel</button>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="checkout-modal" style="display:none;">
+        <div class="checkout-modal-content">
+            <div class="checkout-modal-header">
+                <h2>Checkout</h2>
+                <span class="delivery-badge">📍</span>
+            </div>
+            <form onsubmit="submitCheckout(event)">
+                <div class="checkout-input-group">
+                    <label for="deliveryAddress">Delivery Address</label>
+                    <input id="deliveryAddress" type="text" placeholder="House / Area / Street address" required>
+                </div>
+                <div class="checkout-input-group">
+                    <label for="deliveryLocation">Map Location</label>
+                    <input id="deliveryLocation" type="text" placeholder="City, landmark, or map location" required>
+                    <div class="location-actions">
+                        <button type="button" class="mini-action-btn" onclick="useCurrentLocation()">Use my current location</button>
+                        <button type="button" class="mini-action-btn" onclick="openMapLocationPicker()">Choose on map</button>
+                    </div>
+                </div>
+                <div class="checkout-input-group">
+                    <label>Payment Mode</label>
+
+<div class="payment-options">
+    <label class="payment-option selected">
+        <input type="radio" name="paymentMode"
+               value="Cash on Delivery" checked>
+        Cash on Delivery
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="paymentMode" value="UPI">
+        UPI
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="paymentMode" value="PhonePe">
+        PhonePe
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="paymentMode" value="Google Pay">
+        Google Pay (GPay)
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="paymentMode" value="Paytm">
+        Paytm
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="paymentMode" value="Razorpay">
+        Razorpay
+    </label>
+</div>
+
+                </div>
+                <div class="checkout-actions">
+                    <button type="button" class="secondary" onclick="closeCheckoutModal()">Cancel</button>
+                    <button type="submit">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="orderSuccessModal" class="checkout-modal order-success-modal" style="display:none;"
+         role="dialog" aria-modal="true" aria-labelledby="orderSuccessTitle">
+        <div class="checkout-modal-content order-success-content">
+            <div class="checkout-modal-header">
+                <h2 id="orderSuccessTitle">Order placed!</h2>
+                <span class="delivery-badge order-success-badge" aria-hidden="true">&#10003;</span>
+            </div>
+            <p id="orderSuccessMessage" role="status"></p>
+
+            <div class="checkout-actions">
+                <button type="button" class="secondary" onclick="closeOrderSuccessPopup()">Continue shopping</button>
+                <button type="button" id="orderSuccessAction" onclick="continueAfterOrderSuccess()">View my orders</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="logout-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
+        <div class="logout-modal-content">
+            <div class="logout-modal-icon" aria-hidden="true">?</div>
+            <h2 id="logoutTitle">Log out?</h2>
+            <p>Are you sure you want to leave your account?</p>
+            <div class="logout-modal-actions">
+                <button type="button" class="logout-cancel" onclick="closeLogoutConfirm()">No</button>
+                <button type="button" class="logout-confirm" onclick="confirmLogout()">Yes, log out</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="deliveryOtpModal" class="checkout-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="deliveryOtpTitle">
+        <div class="checkout-modal-content">
+            <div class="checkout-modal-header">
+                <h2 id="deliveryOtpTitle">Confirm delivery</h2>
+                <span class="delivery-badge" aria-hidden="true">&#9993;</span>
+            </div>
+            <p id="deliveryOtpMessage">Ask the customer for the confirmation code shown in their My Orders section.</p>
+            <form onsubmit="verifyDeliveryOtp(event)">
+                <div class="checkout-input-group">
+                    <label for="deliveryOtpCode">Customer email code</label>
+                    <input id="deliveryOtpCode" type="text" inputmode="numeric" autocomplete="one-time-code"
+                        maxlength="6" pattern="[0-9]{6}" placeholder="Enter 6-digit code" required>
+                </div>
+                <p id="deliveryOtpError" class="cart-coupon-message error" role="alert"></p>
+                <div class="checkout-actions">
+                    <button type="button" class="secondary" onclick="closeDeliveryOtpModal()">Cancel</button>
+                    <button type="submit" id="verifyDeliveryOtpButton">Verify &amp; mark delivered</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="upiPaymentModal" class="checkout-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="upiPaymentTitle">
+        <div class="checkout-modal-content">
+            <div class="checkout-modal-header">
+                <h2 id="upiPaymentTitle">Complete UPI payment</h2>
+                <span class="delivery-badge" aria-hidden="true">₹</span>
+            </div>
+            <div class="upi-payment-details">
+                <p>Amount: <strong id="upiPaymentAmount"></strong></p>
+                <p>Scan this QR code with your UPI app and enter the amount shown above.</p>
+                <img class="upi-payment-qr" src="/static/payments/mealzy-upi-qr.jpg"
+                     alt="Mealzy UPI payment QR code" width="280" height="284">
+                <p>After payment, select “I have paid” and enter the UTR from your transaction.</p>
+            </div>
+            <form id="upiUtrForm" onsubmit="confirmUpiPayment(event)" hidden>
+                <div class="checkout-input-group">
+                    <label for="upiUtrInput">UPI transaction reference (UTR)</label>
+                    <input id="upiUtrInput" name="utr" type="text" autocomplete="off"
+                           minlength="6" maxlength="22" pattern="[A-Za-z0-9]{6,22}"
+                           placeholder="Enter 6–22 letters or digits" required>
+                </div>
+                <p id="upiUtrError" class="cart-coupon-message error" role="alert"></p>
+                <div class="checkout-actions">
+                    <button type="button" class="secondary" onclick="closeUpiPaymentModal()">Pay later</button>
+                    <button type="submit" id="submitUpiUtrButton">Submit UTR</button>
+                </div>
+            </form>
+            <div id="upiInitialActions" class="checkout-actions">
+                <button type="button" class="secondary" onclick="closeUpiPaymentModal()">Pay later</button>
+                <button type="button" id="confirmUpiPaymentButton" onclick="showUpiUtrForm()">I have paid</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="info-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+        <div class="info-modal-content">
+            <button type="button" class="info-modal-close" onclick="closeInfoModal()" aria-label="Close information">Close</button>
+            <h2 id="infoModalTitle">Marketplace Information</h2>
+            <p id="infoModalText"></p>
+        </div>
+    </div>
+
+    <div id="successToast" class="success-toast" role="status" aria-live="polite">
+        <span class="success-toast-icon" aria-hidden="true">&#10003;</span>
+        <span>Account created successfully</span>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

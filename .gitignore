@@ -1,0 +1,27 @@
+# Protect secret credentials
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local database files and backups
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+*.dump
+*.bak
+
+# Private files and logs
+*.log
+instance/
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db

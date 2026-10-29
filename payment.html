@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealzy - Secure Payment</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f7f4;
+            color: #20251f;
+            min-height: 100vh;
+            padding: 30px 16px;
+        }
+
+        .container {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo {
+            font-size: 34px;
+            font-weight: 800;
+            color: #237a45;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            color: #777d75;
+            font-size: 13px;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 8px 35px rgba(20, 40, 20, 0.07);
+            border: 1px solid #e9ece6;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #777d75;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+
+        .method {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 16px;
+            border: 1px solid #e5e8e2;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .method:hover {
+            border-color: #78b58b;
+            background: #fbfefb;
+        }
+
+        .method:has(input:checked) {
+            border-color: #27824a;
+            background: #f2faf4;
+        }
+
+        .method input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #27824a;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .method-content {
+            flex: 1;
+        }
+
+        .method-title {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .muted {
+            display: block;
+            color: #777d75;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .payment-icon {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 11px;
+            background: #f0f2ed;
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .razorpay-icon {
+            color: #2865d9;
+            background: #edf3ff;
+        }
+
+        .phonepe-icon {
+            color: #5f259f;
+            background: #f3eaff;
+        }
+
+        .gpay-icon {
+            color: #2672d8;
+            background: #edf5ff;
+        }
+
+        .paytm-icon {
+            color: #0878c9;
+            background: #eaf6ff;
+        }
+
+        .upi-icon {
+            color: #237a45;
+            background: #eaf7ed;
+        }
+
+        .continue-btn {
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            padding: 16px;
+            margin-top: 10px;
+            background: #237a45;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .continue-btn:hover {
+            background: #195e34;
+        }
+
+        .message {
+            display: none;
+            margin-top: 16px;
+            padding: 13px;
+            border-radius: 10px;
+            background: #f0f6ef;
+            color: #285e36;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .message.visible {
+            display: block;
+        }
+
+        .secure-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #777d75;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #237a45;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 22px 12px;
+            }
+
+            .card {
+                padding: 21px 16px;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <header class="header">
+            <div class="logo">mealzy<span style="color:#e69b37">.</span></div>
+            <p class="tagline">GOOD FOOD • BETTER YOU</p>
+        </header>
+
+        <section class="card">
+            <h1>Complete your payment</h1>
+
+            <p class="subtitle">
+                Choose your preferred payment method to continue with your Mealzy order.
+            </p>
+
+            <h2>Select payment method</h2>
+
+            <label class="method">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="razorpay"
+                    checked
+                >
+
+                <span class="payment-icon razorpay-icon">RZP</span>
+
+                <span class="method-content">
+                    <span class="method-title">Razorpay</span>
+                    <span class="muted">
+                        Secure checkout with supported payment methods.
+                    </span>
+                </span>
+            </label>
+
+            <label class="method">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="phonepe"
+                >
+
+                <span class="payment-icon phonepe-icon">PhonePe</span>
+
+                <span class="method-content">
+                    <span class="method-title">PhonePe</span>
+                    <span class="muted">
+                        Choose PhonePe for UPI payment, when supported.
+                    </span>
+                </span>
+            </label>
+
+            <label class="method">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="gpay"
+                >
+
+                <span class="payment-icon gpay-icon">G Pay</span>
+
+                <span class="method-content">
+                    <span class="method-title">Google Pay</span>
+                    <span class="muted">
+                        Choose Google Pay for UPI payment, when supported.
+                    </span>
+                </span>
+            </label>
+
+            <label class="method">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="paytm"
+                >
+
+                <span class="payment-icon paytm-icon">Paytm</span>
+
+                <span class="method-content">
+                    <span class="method-title">Paytm</span>
+                    <span class="muted">
+                        Choose Paytm for UPI payment, when supported.
+                    </span>
+                </span>
+            </label>
+
+            <label class="method">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="upi"
+                >
+
+                <span class="payment-icon upi-icon">UPI</span>
+
+                <span class="method-content">
+                    <span class="method-title">Manual UPI transfer</span>
+                    <span class="muted">
+                        Transfer manually. Payment requires verification.
+                    </span>
+                </span>
+            </label>
+
+            <button
+                type="button"
+                class="continue-btn"
+                id="continueButton"
+            >
+                Continue to payment
+            </button>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+            <p class="secure-note">
+                &#128274; Your payment must be verified securely.<br>
+                Never share your UPI PIN or OTP with anyone.
+            </p>
+
+            <a href="/" class="back-link">← Back to Mealzy</a>
+        </section>
+    </main>
+
+    <script>
+        document
+            .getElementById("continueButton")
+            .addEventListener("click", function () {
+
+                const selected = document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+                const message = document.getElementById("message");
+
+                const messages = {
+                    razorpay:
+                        "Razorpay selected. Secure checkout integration is the next step.",
+
+                    phonepe:
+                        "PhonePe selected. Actual app launching requires UPI checkout integration and device support.",
+
+                    gpay:
+                        "Google Pay selected. Actual app launching requires UPI checkout integration and device support.",
+
+                    paytm:
+                        "Paytm selected. Actual app launching requires UPI checkout integration and device support.",
+
+                    upi:
+                        "Manual UPI selected. Payment must be independently verified before your order is marked paid."
+                };
+
+                message.textContent =
+                    messages[selected.value] ||
+                    "Please select a payment method.";
+
+                message.classList.add("visible");
+            });
+    </script>
+</body>
+</html>
