@@ -25,3 +25,4 @@ instance/
 # Operating system files
 .DS_Store
 Thumbs.db
+database/mealzy_backup.sql
